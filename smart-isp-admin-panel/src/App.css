@@ -1,0 +1,520 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f5f7fb;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #4361ee;
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.sidebar-nav button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav button i {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.sidebar-nav li.active button {
+  background-color: #3a56d4;
+  border-right: 4px solid #fff;
+}
+
+/* Dashboard Styles */
+.dashboard h1 {
+  margin-bottom: 5px;
+  color: #2d3748;
+}
+
+.subtitle {
+  color: #718096;
+  margin-bottom: 30px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.payment-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-item .label {
+  color: #718096;
+}
+
+.payment-item .value {
+  font-weight: bold;
+  color: #2d3748;
+}
+
+/* Add these styles to your existing App.css */
+
+.trend-content {
+  position: relative;
+}
+
+.trend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+
+.trend-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.trend-percentage {
+  color: #38a169;
+  font-weight: bold;
+  background-color: #c6f6d5;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.trend-label {
+  color: #718096;
+  margin: 0 0 5px 0;
+  font-size: 0.95rem;
+}
+
+.trend-period {
+  color: #718096;
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+}
+
+/* Update the month-chart styles to accommodate 12 months */
+.month-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 150px;
+  gap: 5px; /* Add gap between bars */
+}
+
+.month-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  flex: 1; /* Allow bars to flex to fit container */
+  min-width: 0; /* Allow bars to shrink */
+}
+
+.month-bar .bar {
+  width: 20px; /* Make bars slightly narrower to fit 12 months */
+  background: linear-gradient(to top, #4361ee, #3a56d4); /* Gradient for better visual */
+  border-radius: 4px 4px 0 0;
+  margin-bottom: 5px;
+  transition: height 0.3s ease;
+}
+
+.month-bar span {
+  font-size: 0.7rem; /* Slightly smaller font for 12 months */
+  color: #718096;
+  text-align: center;
+}
+
+/* Add a subtle grid behind the chart */
+.payment-trends {
+  position: relative;
+}
+
+.payment-trends::before {
+  content: '';
+  position: absolute;
+  top: 160px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+  z-index: 0;
+}
+
+.payment-trends::after {
+  content: '';
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e2e8f0;
+  z-index: 0;
+}
+
+.month-chart {
+  position: relative;
+  z-index: 1;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background-color: #f7fafc;
+  color: #718096;
+  font-weight: 600;
+}
+
+.issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.issue-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.issue-icon {
+  font-size: 1.5rem;
+}
+
+.issue-content h3 {
+  margin: 0 0 5px 0;
+  color: #2d3748;
+}
+
+.issue-content p {
+  margin: 0;
+  color: #718096;
+}
+
+.automated-actions {
+  grid-column: 1 / -1;
+}
+
+/* Utility classes */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+.status-badge.suspended {
+  background-color: #fed7d7;
+  color: #742a2a;
+}
+
+.status-badge.cancelled {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.status-badge.inactive {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.status-badge.pending {
+  background-color: #feebcb;
+  color: #744210;
+}
+
+.action-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.view-btn {
+  background-color: #4361ee;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #3a56d4;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 10px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-box button {
+  padding: 10px 15px;
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn.primary {
+  background-color: #4361ee;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  margin-left: 10px;
+}
+
+/* Billing Styles */
+.billing-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #718096;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: #4361ee;
+  border-bottom: 2px solid #4361ee;
+}
+
+.billing-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.billing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-item .label {
+  color: #718096;
+}
+
+.info-item .value {
+  font-weight: bold;
+  color: #2d3748;
+}
+
+.summary-table {
+  width: 100%;
+}
+
+.summary-table th,
+.summary-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-table th {
+  background-color: #f7fafc;
+  color: #718096;
+  font-weight: 600;
+}
+
+.billing-actions {
+  grid-column: 1 / -1;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .dashboard-grid,
+  .billing-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 70px 20px 20px 20px;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: 60px;
+    bottom: auto;
+    top: 0;
+  }
+  
+  .sidebar-header {
+    display: none;
+  }
+  
+  .sidebar-nav ul {
+    display: flex;
+    height: 60px;
+  }
+  
+  .sidebar-nav li {
+    flex: 1;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-nav button {
+    justify-content: center;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  
+  .sidebar-nav button i {
+    margin-right: 0;
+    margin-bottom: 5px;
+    display: block;
+    text-align: center;
+  }
+  
+  .sidebar-nav li.active button {
+    border-right: none;
+    border-bottom: 4px solid #fff;
+  }
+}
