@@ -1,49 +1,60 @@
 // src/components/Services.tsx
 
+import React from "react";
 
-const Services = () => {
-  const services = [
+// Define the shape of a service
+interface Service {
+  id: string;
+  customer: string;
+  type: string;
+  status: "Active" | "Inactive";
+  bandwidth: string;
+  staticIP: "Yes" | "No";
+}
+
+const Services: React.FC = () => {
+  const services: Service[] = [
     {
-      id: 'SVC001',
-      customer: 'Emily Carter',
-      type: 'Fiber',
-      status: 'Active',
-      bandwidth: '100 Mbps',
-      staticIP: 'Yes'
+      id: "SVC001",
+      customer: "Emily Carter",
+      type: "Fiber",
+      status: "Active",
+      bandwidth: "100 Mbps",
+      staticIP: "Yes",
     },
     {
-      id: 'SVC002',
-      customer: 'David Lee',
-      type: 'DSL',
-      status: 'Inactive',
-      bandwidth: '20 Mbps',
-      staticIP: 'No'
+      id: "SVC002",
+      customer: "David Lee",
+      type: "DSL",
+      status: "Inactive",
+      bandwidth: "20 Mbps",
+      staticIP: "No",
     },
     {
-      id: 'SVC003',
-      customer: 'Sophia Clark',
-      type: 'Cable',
-      status: 'Active',
-      bandwidth: '50 Mbps',
-      staticIP: 'Yes'
+      id: "SVC003",
+      customer: "Sophia Clark",
+      type: "Cable",
+      status: "Active",
+      bandwidth: "50 Mbps",
+      staticIP: "Yes",
     },
     {
-      id: 'SVC004',
-      customer: 'Ethan Walker',
-      type: 'Fiber',
-      status: 'Active',
-      bandwidth: '200 Mbps',
-      staticIP: 'Yes'
+      id: "SVC004",
+      customer: "Ethan Walker",
+      type: "Fiber",
+      status: "Active",
+      bandwidth: "200 Mbps",
+      staticIP: "Yes",
     },
     {
-      id: 'SVC005',
-      customer: 'Olivia Green',
-      type: 'DSL',
-      status: 'Inactive',
-      bandwidth: '10 Mbps',
-      staticIP: 'No'
-    }
-  ]
+      id: "SVC005",
+      customer: "Olivia Green",
+      type: "DSL",
+      status: "Inactive",
+      bandwidth: "10 Mbps",
+      staticIP: "No",
+    },
+  ];
 
   return (
     <div className="services">
@@ -51,7 +62,9 @@ const Services = () => {
         <h1>Services</h1>
         <div className="search-box">
           <input type="text" placeholder="Search services..." />
-          <button><i className="fas fa-search"></i></button>
+          <button>
+            <i className="fas fa-search"></i>
+          </button>
         </div>
       </div>
 
@@ -59,7 +72,7 @@ const Services = () => {
         <table className="services-table">
           <thead>
             <tr>
-              <th>Services ID</th>
+              <th>Service ID</th>
               <th>Customer</th>
               <th>Type</th>
               <th>Status</th>
@@ -69,13 +82,15 @@ const Services = () => {
             </tr>
           </thead>
           <tbody>
-            {services.map(service => (
+            {services.map((service) => (
               <tr key={service.id}>
                 <td>{service.id}</td>
                 <td>{service.customer}</td>
                 <td>{service.type}</td>
                 <td>
-                  <span className={`status-badge ${service.status.toLowerCase()}`}>
+                  <span
+                    className={`status-badge ${service.status.toLowerCase()}`}
+                  >
                     {service.status}
                   </span>
                 </td>
@@ -90,7 +105,7 @@ const Services = () => {
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

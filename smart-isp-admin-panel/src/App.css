@@ -7,9 +7,9 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  color: #ffffff;
   line-height: 1.6;
-  background-color: #f5f7fb;
+  background-color: #334A66;
 }
 
 button {
@@ -31,7 +31,7 @@ button {
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: #4361ee;
+  background-color: #32588a;
   color: white;
   position: fixed;
   left: 0;
@@ -82,18 +82,18 @@ button {
 }
 
 .sidebar-nav li.active button {
-  background-color: #3a56d4;
+  background-color: #214672;
   border-right: 4px solid #fff;
 }
 
 /* Dashboard Styles */
 .dashboard h1 {
   margin-bottom: 5px;
-  color: #2d3748;
+  color: #ffffff;
 }
 
 .subtitle {
-  color: #718096;
+  color: #8092ac;
   margin-bottom: 30px;
 }
 
@@ -104,7 +104,7 @@ button {
 }
 
 .card {
-  background: white;
+  background: #111827;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -112,7 +112,7 @@ button {
 
 .card h2 {
   margin-top: 0;
-  color: #2d3748;
+  color: #ffffff;
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
@@ -130,12 +130,12 @@ button {
 }
 
 .payment-item .label {
-  color: #718096;
+  color: #ffffff;
 }
 
 .payment-item .value {
   font-weight: bold;
-  color: #2d3748;
+  color: #ffffff;
 }
 
 /* Add these styles to your existing App.css */
@@ -154,7 +154,7 @@ button {
 .trend-value {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #2d3748;
+  color: #ffffff;
 }
 
 .trend-percentage {
@@ -167,7 +167,7 @@ button {
 }
 
 .trend-label {
-  color: #718096;
+  color: #ffffff;
   margin: 0 0 5px 0;
   font-size: 0.95rem;
 }
@@ -281,7 +281,7 @@ th {
 
 .issue-content h3 {
   margin: 0 0 5px 0;
-  color: #2d3748;
+  color: #f7f7f7;
 }
 
 .issue-content p {
@@ -335,12 +335,12 @@ th {
 }
 
 .view-btn {
-  background-color: #4361ee;
+  background-color: #0930e0;
   color: white;
 }
 
 .view-btn:hover {
-  background-color: #3a56d4;
+  background-color: #1873e2;
 }
 
 .page-header {
@@ -437,7 +437,7 @@ th {
 
 .info-item .value {
   font-weight: bold;
-  color: #2d3748;
+  color: #ffffff;
 }
 
 .summary-table {
@@ -465,6 +465,383 @@ th {
   display: flex;
   gap: 10px;
 }
+
+.devices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.devices-header h1 {
+  font-size: 1.5rem;
+}
+
+.add-device-btn {
+  background-color: #0930e0;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.add-device-btn:hover {
+  background-color: #1873e2;
+}
+
+.devices-search {
+  margin-bottom: 1rem;
+}
+
+.devices-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #111827;
+  color: white;
+}
+
+.status.online {
+  background-color: #16a34a;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.status.offline {
+  background-color: #dc2626;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+/* ==== Clients Page ==== */
+.clients-page {
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.clients-page h1 {
+  font-size: 1.8rem;
+}
+
+/* Overview cards (flex instead of grid) */
+.overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.overview .card {
+  flex: 1 1 220px; /* grow, shrink, base width */
+  background: #111827; /* dark card */
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  min-width: 200px;
+}
+
+.overview .card span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* Search bar with flex (input + optional button) */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #1f2937;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.search-bar input::placeholder {
+  color: #9ca3af;
+}
+
+/* Clients table */
+.clients-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111827;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.clients-table th,
+.clients-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.clients-table th {
+  background: #1f2937;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.clients-table tr {
+  border-bottom: 1px solid #1f2937;
+}
+
+.clients-table tr:last-child {
+  border-bottom: none;
+}
+
+.clients-table td {
+  color: #e5e7eb;
+  vertical-align: middle;
+}
+
+/* Status badges with flex alignment */
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+}
+
+.status.active {
+  background: #10b98133;
+  color: #10b981;
+}
+
+.status.inactive {
+  background: #ef444433;
+  color: #ef4444;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.pagination button {
+  background: #1f2937;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #374151;
+}
+
+/* General SMS container as a card */
+.sms {
+  background-color: #1e293b; /* dark slate background */
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Card shape */
+  max-width: 1200px;       /* keep it centered like a card */
+  margin: 40px auto;       /* center with spacing around */
+  border-radius: 16px;     /* rounded corners for the card */
+  padding: 32px;           /* inner spacing */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* floating card effect */
+}
+
+
+/* Reusable card styling */
+.sms-card {
+  background-color: #2d3748;
+  border-radius: 16px; /* smoother curve */
+  padding: 20px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5); /* stronger shadow */
+}
+
+
+/* Input & select fields */
+.sms-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  background-color: #1a202c;
+  color: #f9fafb;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.sms-input:focus {
+  border-color: #60a5fa; /* blue glow */
+  outline: none;
+  box-shadow: 0 0 4px #60a5fa;
+}
+
+/* Buttons */
+.sms-button {
+  display: inline-block;
+  background-color: #3b82f6; /* blue */
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  margin-top: 8px;
+}
+
+.sms-button:hover {
+  background-color: #2563eb;
+}
+
+.sms-button:active {
+  transform: scale(0.97);
+}
+
+/* Table styling */
+.sms-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.sms-card th,
+.sms-card td {
+  padding: 10px;
+}
+
+.sms-card th {
+  background-color: #374151;
+  font-weight: 600;
+}
+
+.sms-card tr:nth-child(even) {
+  background-color: #1f2937;
+}
+
+.system-settings {
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.settings-card {
+  background: #2a2a3d;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.settings-card table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.settings-card th, 
+.settings-card td {
+  padding: 10px;
+  text-align: left;
+}
+
+.settings-card th {
+  background: #3a3a50;
+  color: #d1d1e0;
+}
+
+.settings-card tr:nth-child(even) {
+  background: #242438;
+}
+
+.settings-card tr:nth-child(odd) {
+  background: #2f2f46;
+}
+
+.settings-card tr:hover {
+  background: #3b3b58;
+}
+
+/* Input Styling */
+.settings-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #1c1c2b;
+  color: #ffffff;
+  outline: none;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.settings-input:focus {
+  background: #25253a;
+  border: 1px solid #4cafef;
+}
+
+/* Button Styling */
+.settings-button {
+  background: #4cafef;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.settings-button:hover {
+  background: #3a9cda;
+}
+
+.settings-button:active {
+  transform: scale(0.98);
+}
+
+/* Section Labels */
+.section-label {
+  font-size: 1.125rem; /* ~18px */
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #9aa1df;
+}
+
+
+
+
+
+
 
 /* Responsive styles */
 @media (max-width: 1024px) {

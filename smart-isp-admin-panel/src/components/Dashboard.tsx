@@ -1,11 +1,35 @@
 // src/components/Dashboard.tsx
-const Dashboard = () => {
+import React from "react"
+
+// Define type for payment trend data
+type TrendData = {
+  m: string
+  h: string
+}
+
+const Dashboard: React.FC = () => {
+  const trendData: TrendData[] = [
+    { m: "Jan", h: "40%" },
+    { m: "Feb", h: "60%" },
+    { m: "Mar", h: "80%" },
+    { m: "Apr", h: "70%" },
+    { m: "May", h: "90%" },
+    { m: "Jun", h: "100%" },
+    { m: "Jul", h: "85%" },
+    { m: "Aug", h: "75%" },
+    { m: "Sep", h: "65%" },
+    { m: "Oct", h: "55%" },
+    { m: "Nov", h: "45%" },
+    { m: "Dec", h: "35%" },
+  ]
+
   return (
     <div className="dashboard">
-      <h1>Dashboard</h1>
+      <h1 className="dashboard-title">Dashboard</h1>
       <p className="subtitle">Overview of system performance and key metrics</p>
-      
+
       <div className="dashboard-grid">
+        {/* Payment Status */}
         <div className="payment-status card">
           <h2>Payment Status</h2>
           <div className="payment-items">
@@ -23,7 +47,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        
+
+        {/* Payment Trends */}
         <div className="payment-trends card">
           <h2>Payment Trends</h2>
           <div className="trend-content">
@@ -32,61 +57,21 @@ const Dashboard = () => {
               <span className="trend-percentage">+15%</span>
             </div>
             <p className="trend-label">Monthly Payment Trends</p>
+            <br />
             <p className="trend-period">Last 12 Months</p>
-            
+
             <div className="month-chart">
-              <div className="month-bar">
-                <div className="bar" style={{height: '40%'}}></div>
-                <span>Jan</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '60%'}}></div>
-                <span>Feb</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '80%'}}></div>
-                <span>Mar</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '70%'}}></div>
-                <span>Apr</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '90%'}}></div>
-                <span>May</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '100%'}}></div>
-                <span>Jun</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '85%'}}></div>
-                <span>Jul</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '75%'}}></div>
-                <span>Aug</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '65%'}}></div>
-                <span>Sep</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '55%'}}></div>
-                <span>Oct</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '45%'}}></div>
-                <span>Nov</span>
-              </div>
-              <div className="month-bar">
-                <div className="bar" style={{height: '35%'}}></div>
-                <span>Dec</span>
-              </div>
+              {trendData.map(({ m, h }, i) => (
+                <div key={i} className="month-bar">
+                  <div className="bar" style={{ height: h }}></div>
+                  <span>{m}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-        
+
+        {/* Automated Actions */}
         <div className="automated-actions card">
           <h2>Automated Actions</h2>
           <div className="table-container">
@@ -134,7 +119,8 @@ const Dashboard = () => {
             </table>
           </div>
         </div>
-        
+
+        {/* AI Issue Detection */}
         <div className="issue-detection card">
           <h2>AI-Driven Issue Detection</h2>
           <div className="issues-list">
