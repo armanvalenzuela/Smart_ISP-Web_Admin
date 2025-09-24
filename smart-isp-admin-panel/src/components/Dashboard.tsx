@@ -1,5 +1,6 @@
 // src/components/Dashboard.tsx
 import React from "react"
+import ReactApexChart from "react-apexcharts"
 
 // Define type for payment trend data
 type TrendData = {
@@ -22,6 +23,59 @@ const Dashboard: React.FC = () => {
     { m: "Nov", h: "45%" },
     { m: "Dec", h: "35%" },
   ]
+
+  // Convert trendData to numbers for ApexCharts
+  const chartSeries = [
+    {
+      name: "Payments",
+      data: trendData.map((item) => parseInt(item.h.replace("%", ""))),
+    },
+  ]
+
+  // Common chart options for both charts
+  const commonOptions: ApexCharts.ApexOptions = {
+    xaxis: {
+      categories: trendData.map((item) => item.m),
+      labels: { style: { colors: "#aaa" } },
+    },
+    yaxis: {
+      labels: { formatter: (val) => `${val}%`, style: { colors: "#aaa" } },
+    },
+    dataLabels: { enabled: false },
+    colors: ["#008FFB"],
+    grid: {
+      borderColor: "rgba(255,255,255,0.1)",
+    },
+    tooltip: {
+      theme: "dark",
+    },
+  }
+
+  const barChartOptions: ApexCharts.ApexOptions = {
+    ...commonOptions,
+    chart: { type: "bar", height: 250, toolbar: { show: false } },
+    plotOptions: {
+      bar: {
+        borderRadius: 6,
+        columnWidth: "50%",
+      },
+    },
+  }
+
+  const splineChartOptions: ApexCharts.ApexOptions = {
+    ...commonOptions,
+    chart: { type: "area", height: 250, toolbar: { show: false } },
+    stroke: { curve: "smooth", width: 2 },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.4,
+        opacityTo: 0.1,
+        stops: [0, 90, 100],
+      },
+    },
+  }
 
   return (
     <div className="dashboard">
@@ -60,13 +114,24 @@ const Dashboard: React.FC = () => {
             <br />
             <p className="trend-period">Last 12 Months</p>
 
-            <div className="month-chart">
-              {trendData.map(({ m, h }, i) => (
-                <div key={i} className="month-bar">
-                  <div className="bar" style={{ height: h }}></div>
-                  <span>{m}</span>
-                </div>
-              ))}
+            {/* New Apex Bar Chart */}
+            <div className="apex-chart">
+              <ReactApexChart
+                options={barChartOptions}
+                series={chartSeries}
+                type="bar"
+                height={250}
+              />
+            </div>
+
+            {/* New Apex Spline Area Chart */}
+            <div className="apex-chart">
+              <ReactApexChart
+                options={splineChartOptions}
+                series={chartSeries}
+                type="area"
+                height={250}
+              />
             </div>
           </div>
         </div>

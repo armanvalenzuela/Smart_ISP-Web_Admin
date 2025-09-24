@@ -178,37 +178,7 @@ button {
   font-size: 0.9rem;
 }
 
-/* Update the month-chart styles to accommodate 12 months */
-.month-chart {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 150px;
-  gap: 5px; /* Add gap between bars */
-}
 
-.month-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  flex: 1; /* Allow bars to flex to fit container */
-  min-width: 0; /* Allow bars to shrink */
-}
-
-.month-bar .bar {
-  width: 20px; /* Make bars slightly narrower to fit 12 months */
-  background: linear-gradient(to top, #4361ee, #3a56d4); /* Gradient for better visual */
-  border-radius: 4px 4px 0 0;
-  margin-bottom: 5px;
-  transition: height 0.3s ease;
-}
-
-.month-bar span {
-  font-size: 0.7rem; /* Slightly smaller font for 12 months */
-  color: #718096;
-  text-align: center;
-}
 
 /* Add a subtle grid behind the chart */
 .payment-trends {
@@ -237,10 +207,45 @@ button {
   z-index: 0;
 }
 
-.month-chart {
-  position: relative;
-  z-index: 1;
+
+
+.apex-chart {
+  margin-top: 15px;
+  background: #1e1e2f;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 100%;
+  transition: transform 0.2s ease-in-out;
 }
+
+.apex-chart:hover {
+  transform: scale(1.01);
+}
+
+.apex-chart .apexcharts-toolbar {
+  display: none !important;   /* hide Apex default toolbar if unwanted */
+}
+
+.apex-chart .apexcharts-tooltip {
+  background: #2c2c3e !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: 8px 10px !important;
+  font-size: 12px !important;
+}
+
+.apex-chart .apexcharts-xaxis-label,
+.apex-chart .apexcharts-yaxis-label {
+  fill: #aaa !important;
+  font-size: 12px !important;
+}
+
+.apex-chart .apexcharts-grid line {
+  stroke: rgba(255, 255, 255, 0.08); /* faint grid lines */
+}
+
 
 .table-container {
   overflow-x: auto;
@@ -474,7 +479,7 @@ th {
 }
 
 .devices-header h1 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .add-device-btn {
@@ -530,7 +535,7 @@ th {
 }
 
 .clients-page h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 /* Overview cards (flex instead of grid) */
@@ -661,7 +666,7 @@ th {
 
 /* General SMS container as a card */
 .sms {
-  background-color: #1e293b; /* dark slate background */
+  background: #111827; /* dark slate background */
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
@@ -753,7 +758,7 @@ th {
 }
 
 .settings-card {
-  background: #2a2a3d;
+  background: #111827;
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
