@@ -10,7 +10,7 @@ import Billing from './components/Billing'
 import Support from './components/Support'
 import SMS from './components/SMS'
 import SystemSettings from './components/SystemSettings'
-import './App.css'
+import './styles/App.css'
 
 type ActiveComponent =
   | 'dashboard'
